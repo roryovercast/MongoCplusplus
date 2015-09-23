@@ -13,6 +13,7 @@
 void run() {
     mongo::DBClientConnection c;
     c.connect("localhost:3001");
+    std::cout << "connected ok" << std::endl;
     
     for (int count=0; count<50; count++) {
         std::cout << count << std::endl;
@@ -29,7 +30,6 @@ int main() {
     mongo::client::initialize();
     try {
         run();
-        std::cout << "connected ok" << std::endl;
     } catch( const mongo::DBException &e ) {
         std::cout << "caught " << e.what() << std::endl;
     }
