@@ -202,14 +202,38 @@
 		185BDC931BB20B2C00FAA8BE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					"/Users/roryovercast/Programming/mongo-client-install/lib",
+				);
+				OTHER_LDFLAGS = (
+					"-lboost_system-mt",
+					"-lmongoclient",
+					"-lboost_regex",
+					"-lboost_thread-mt",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Users/roryovercast/Programming/mongo-client-install/include/** /usr/local/Cellar/boost/1.58.0/include";
 			};
 			name = Debug;
 		};
 		185BDC941BB20B2C00FAA8BE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					"/Users/roryovercast/Programming/mongo-client-install/lib",
+				);
+				OTHER_LDFLAGS = (
+					"-lboost_system-mt",
+					"-lmongoclient",
+					"-lboost_regex",
+					"-lboost_thread-mt",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "/Users/roryovercast/Programming/mongo-client-install/include/** /usr/local/Cellar/boost/1.58.0/include";
 			};
 			name = Release;
 		};

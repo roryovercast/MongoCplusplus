@@ -6,10 +6,32 @@
 //  Copyright (c) 2015 Rory Overcast. All rights reserved.
 //
 
+#include <cstdlib>
 #include <iostream>
+#include "mongo/client/dbclient.h" // for the driver
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+void run() {
+    mongo::DBClientConnection c;
+    c.connect("localhost:3001");
+    
+    for (int count=0; count<50; count++) {
+        std::cout << count << std::endl;
+        
+        c.update("meteor.todos",
+                 BSON("_id" << "gToXqZYDNdKuAMXpz"),
+                 BSON("$set" << BSON( "text" << count))
+                 );
+        usleep(100000);
+    }
+}
+
+int main() {
+    mongo::client::initialize();
+    try {
+        run();
+        std::cout << "connected ok" << std::endl;
+    } catch( const mongo::DBException &e ) {
+        std::cout << "caught " << e.what() << std::endl;
+    }
+    return EXIT_SUCCESS;
 }
